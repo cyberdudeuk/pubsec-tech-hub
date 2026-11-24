@@ -1,0 +1,37 @@
+# Publishes the hub to GitHub Pages after the same checks and visual inspection as CI.
+# Also runs after a successful sync or weekly harvest (pushes made by those jobs do not trigger workflows).
+# One-off setting: Settings > Pages > Build and deployment > Source: "GitHub Actions".
+name: Publish site
+on:
+  push: {branches: [main]}
+  workflow_dispatch:
+  workflow_run:
+    workflows: ["Sync from staging", "Weekly harvest"]
+    types: [completed]
+permissions: {contents: read, pages: write, id-token: write}
+concurrency: {group: pages, cancel-in-progress: true}
+jobs:
+  build:
+    if: github.event_name != 'workflow_run' || github.event.workflow_run.conclusion == 'success'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7
+        with: {ref: main}
+      - uses: actions/setup-python@6d4fd22b20465ccc0f7354476588e8df7c9ca0e0 # v7
+        with: {python-version: "3.12"}
+      - run: pip install qrcode==7.4.2 python-barcode==0.15.1 pyyaml==6.0.2
+      - run: python tools/build.py --check
+      - run: python tools/checks.py
+      - run: python -m unittest discover -s tests
+      - run: pip install playwright==1.48.0 && python -m playwright install --with-deps chromium
+      - name: Visual inspection (blocks publishing on failure)
+        run: python tools/visual_qa.py
+      - uses: actions/upload-pages-artifact@fc324d3547104276b827a68afc52ff2a11cc49c9 # v5
+        with: {path: site}
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    environment: {name: github-pages, url: "${{ steps.d.outputs.page_url }}"}
+    steps:
+      - id: d
+        uses: actions/deploy-pages@368f82528645a54fb793d4d04e342629a3f51346 # v5
