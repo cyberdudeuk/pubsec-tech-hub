@@ -1,0 +1,32 @@
+# Every Monday: read publiccode.yml from each repository on the harvest list, rebuild, check, and
+# commit if anything changed (the Publish workflow then republishes). On failure, opens one issue.
+name: Weekly harvest
+on:
+  schedule: [{cron: "17 5 * * 1"}]
+  workflow_dispatch:
+permissions: {contents: write, issues: write}
+concurrency: {group: harvest, cancel-in-progress: false}
+jobs:
+  harvest:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7
+      - uses: actions/setup-python@6d4fd22b20465ccc0f7354476588e8df7c9ca0e0 # v7
+        with: {python-version: "3.12"}
+      - run: pip install qrcode==7.4.2 python-barcode==0.15.1 pyyaml==6.0.2
+      - run: python tools/harvest.py
+      - run: python tools/build.py
+      - run: python tools/checks.py
+      - run: python -m unittest discover -s tests
+      - name: Commit if changed
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add data site
+          git diff --cached --quiet || { git commit -m "Weekly harvest $(date -u +%F)"; git push; }
+      - if: failure()
+        uses: actions/github-script@3a2844b7e9c422d3c10d287c895573f7108da1b3 # v9.0.0
+        with:
+          script: |
+            const open = (await github.rest.issues.listForRepo({...context.repo, state: 'open', labels: 'harvest'})).data;
+            if (!open.length) await github.rest.issues.create({...context.repo, title: 'Weekly harvest failed', labels: ['harvest'], body: 'The weekly harvest failed, so nothing was published. See ' + context.serverUrl + '/' + context.repo.owner + '/' + context.repo.repo + '/actions/runs/' + context.runId});
