@@ -1,0 +1,27 @@
+name: Report an accessibility problem
+description: Something on the hub is hard or impossible to use.
+title: "[Accessibility] "
+labels: ["accessibility"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        What you write here is **public**. Please don't include names of private individuals, contact details, personal data or anything with a protective marking. We reply on this issue, usually within 10 working days.
+  - type: input
+    id: where
+    attributes:
+      label: Which page or part?
+    validations: {required: true}
+  - type: textarea
+    id: problem
+    attributes:
+      label: What happened, and what were you using?
+      description: For example a screen reader, magnifier, keyboard only, or a phone.
+    validations: {required: true}
+  - type: checkboxes
+    id: public
+    attributes:
+      label: Before you send
+      options:
+        - label: I understand this is public and I haven't included personal or sensitive information.
+          required: true

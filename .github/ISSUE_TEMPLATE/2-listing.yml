@@ -1,0 +1,49 @@
+name: List a product
+description: Ask for a product your public body makes or runs to be listed in the app store.
+title: "[Listing] "
+labels: ["listing", "moderation"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        What you write here is **public**. Please don't include names of private individuals, contact details, personal data or anything with a protective marking. We reply on this issue, usually within 10 working days.
+  - type: input
+    id: name
+    attributes:
+      label: Product name
+    validations: {required: true}
+  - type: input
+    id: body
+    attributes:
+      label: Owning public body
+      description: Or the supplier publishing on its behalf, with the body's name.
+    validations: {required: true}
+  - type: dropdown
+    id: type
+    attributes:
+      label: Type of body
+      options: [Central government, Local government, NHS, Devolved administration, Other public body]
+    validations: {required: true}
+  - type: input
+    id: repo
+    attributes:
+      label: Public repository address
+      placeholder: https://github.com/owner/name
+    validations: {required: true}
+  - type: dropdown
+    id: publiccode
+    attributes:
+      label: Does the repository have a publiccode.yml file?
+      options: ["Yes", "Not yet: please list it as curated meanwhile"]
+    validations: {required: true}
+  - type: input
+    id: live
+    attributes:
+      label: Live service or landing page (https address, optional)
+  - type: checkboxes
+    id: public
+    attributes:
+      label: Before you send
+      options:
+        - label: I understand this is public and I haven't included personal or sensitive information.
+          required: true

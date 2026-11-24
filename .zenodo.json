@@ -1,0 +1,15 @@
+{
+  "upload_type": "software",
+  "title": "Public Sector Tech Hub",
+  "creators": [{"name": "Silva, Emanuel", "orcid": "0009-0000-5880-7219"}],
+  "description": "An open directory of what UK public bodies make, run and deploy that others can adopt: an app store harvested weekly from publiccode.yml files, with licence, code, live service and sourced facts for every listing, and no ratings or reviews.",
+  "keywords": ["govtech", "public-sector", "open-source", "publiccode-yml", "reuse", "common-platforms"],
+  "notes": "Personal project, not an official government service, policy or endorsement. Code is MIT licensed; content and data are CC BY 4.0. Status at release: Prototype.",
+  "related_identifiers": [
+    {"identifier": "https://cyberdudeuk.github.io/pubsec-tech-hub/", "relation": "isDocumentedBy", "scheme": "url"},
+    {"identifier": "https://cyberdudeuk.github.io/legacy-technology-observatory/", "relation": "isSupplementTo", "scheme": "url"},
+    {"identifier": "https://cyberdudeuk.github.io/github-repos-asset-catalogue/", "relation": "isSupplementTo", "scheme": "url"}
+  ],
+  "version": "1.0.0",
+  "license": "mit"
+}

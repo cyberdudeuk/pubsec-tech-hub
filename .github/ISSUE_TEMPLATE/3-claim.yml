@@ -1,0 +1,32 @@
+name: Claim a listing
+description: A curated listing describes your product and you want to own its details.
+title: "[Claim] "
+labels: ["claim", "moderation"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        What you write here is **public**. Please don't include names of private individuals, contact details, personal data or anything with a protective marking. We reply on this issue, usually within 10 working days.
+  - type: input
+    id: listing
+    attributes:
+      label: Which listing?
+    validations: {required: true}
+  - type: input
+    id: body
+    attributes:
+      label: Your public body
+    validations: {required: true}
+  - type: textarea
+    id: proof
+    attributes:
+      label: How can we confirm the body owns it?
+      description: For example a public page or the repository's owner.
+    validations: {required: true}
+  - type: checkboxes
+    id: public
+    attributes:
+      label: Before you send
+      options:
+        - label: I understand this is public and I haven't included personal or sensitive information.
+          required: true

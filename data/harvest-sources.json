@@ -1,0 +1,50 @@
+[
+  {
+    "repo": "https://github.com/alphagov/notifications-api",
+    "branch": "main"
+  },
+  {
+    "repo": "https://github.com/alphagov/pay-frontend",
+    "branch": "master"
+  },
+  {
+    "repo": "https://github.com/alphagov/forms-runner",
+    "branch": "main"
+  },
+  {
+    "repo": "https://github.com/govuk-one-login/authentication-api",
+    "branch": "main"
+  },
+  {
+    "repo": "https://github.com/alphagov/govuk-frontend",
+    "branch": "main"
+  },
+  {
+    "repo": "https://github.com/alphagov/govuk-prototype-kit",
+    "branch": "main"
+  },
+  {
+    "repo": "https://github.com/alphagov/govuk-mobile-ios-app",
+    "branch": "main"
+  },
+  {
+    "repo": "https://github.com/alphagov/govuk-chat",
+    "branch": "main"
+  },
+  {
+    "repo": "https://github.com/localgovdrupal/localgov",
+    "branch": "3.x"
+  },
+  {
+    "repo": "https://github.com/nhsuk/nhsuk-frontend",
+    "branch": "main"
+  },
+  {
+    "repo": "https://github.com/ministryofjustice/moj-frontend",
+    "branch": "main"
+  },
+  {
+    "repo": "https://github.com/co-cddo/api-catalogue",
+    "branch": "main"
+  }
+]

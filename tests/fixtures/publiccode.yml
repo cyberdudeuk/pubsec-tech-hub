@@ -1,0 +1,20 @@
+# A small, invented publiccode.yml used only to test the harvester offline.
+publiccodeYmlVersion: "0.4"
+name: Example Council Bins
+url: "https://github.com/example-council/bins"
+landingURL: "https://bins.example.org"
+softwareType: "standalone/web"
+developmentStatus: stable
+categories: [collaboration]
+platforms: [web]
+description:
+  en:
+    shortDescription: "Check which bin goes out this week."
+legal:
+  license: MIT
+  mainCopyrightOwner: Example Council
+maintenance:
+  type: internal
+  contacts:
+    - name: Bins team
+      email: bins@example.org

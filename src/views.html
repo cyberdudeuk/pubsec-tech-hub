@@ -1,0 +1,157 @@
+<section class="view" id="overview" data-title="Overview" data-icon="home" aria-labelledby="ov-h">
+  <div class="hero">
+    <div>
+      <p class="tag">Prototype · evidence to <span data-bind="evidence"></span></p>
+      <h1 id="ov-h">What UK public bodies make and run, ready for you to adopt</h1>
+      <p class="lede">An open app store of public sector platforms, products and components, with the licence, code, live service and sourced facts for each. No ratings, no reviews, nothing that can be faked.</p>
+      <p><a class="btn pri" href="#store"><svg class="i" aria-hidden="true"><use href="#i-store"/></svg>Browse the store</a> <a class="btn" href="#adopt"><svg class="i" aria-hidden="true"><use href="#i-plus"/></svg>List or claim a product</a></p>
+    </div>
+    <svg class="art" viewBox="0 0 220 160" role="img" aria-label="Illustration: building blocks labelled code, service and licence stacked into one listing">
+      <rect x="20" y="96" width="80" height="44" rx="8" fill="var(--brand-soft)" stroke="var(--brand)"/><text x="60" y="123" text-anchor="middle" font-size="12" fill="var(--ink)">code</text>
+      <rect x="110" y="96" width="90" height="44" rx="8" fill="var(--accent-soft)" stroke="var(--accent)"/><text x="155" y="123" text-anchor="middle" font-size="12" fill="var(--ink)">live service</text>
+      <rect x="55" y="40" width="110" height="44" rx="8" fill="var(--surface)" stroke="var(--brand)"/><text x="110" y="67" text-anchor="middle" font-size="12" fill="var(--ink)">licence + sources</text>
+      <circle cx="190" cy="30" r="12" fill="var(--brand)"/><path d="M184 30l4 4 8-8" stroke="var(--brand-ink)" stroke-width="2.5" fill="none"/>
+    </svg>
+  </div>
+  <h2 id="ov-numbers">In numbers</h2>
+  <div class="grid g4" id="ovStats"></div>
+  <h2 id="ov-three">One of three linked sites</h2>
+  <p>Each site has one job, so you never have to look in two places for the same thing.</p>
+  <div class="grid g3">
+    <div class="card"><h3><svg class="i" aria-hidden="true"><use href="#i-code"/></svg>GitHub Repos Asset Catalogue</h3><p>Code that exists: what you could reuse.</p><a href="https://cyberdudeuk.github.io/github-repos-asset-catalogue/">Open the catalogue</a></div>
+    <div class="card"><h3><svg class="i" aria-hidden="true"><use href="#i-shield"/></svg>Legacy Technology Observatory</h3><p>What is old and risky: what you need to replace.</p><a href="https://cyberdudeuk.github.io/legacy-technology-observatory/">Open the observatory</a></div>
+    <div class="card" style="border-color:var(--brand)"><h3><svg class="i" aria-hidden="true"><use href="#i-store"/></svg>Public Sector Tech Hub</h3><p>What public bodies make, run and deploy: what you can adopt. You are here.</p></div>
+  </div>
+  <h2 id="ov-start">Where to start</h2>
+  <div class="grid g3">
+    <a class="card" href="#store" style="text-decoration:none;color:inherit"><h3><svg class="i" aria-hidden="true"><use href="#i-search"/></svg>I am building a service</h3><p>Find a platform or component before you build your own.</p></a>
+    <a class="card" href="#adopt" style="text-decoration:none;color:inherit"><h3><svg class="i" aria-hidden="true"><use href="#i-plus"/></svg>I run a product</h3><p>Add a publiccode.yml file or submit the form to get listed.</p></a>
+    <a class="card" href="#developers" style="text-decoration:none;color:inherit"><h3><svg class="i" aria-hidden="true"><use href="#i-code"/></svg>I am a developer</h3><p>Common platforms, standards and the hub's open data.</p></a>
+  </div>
+  <h2 id="ov-honest">What this hub does not claim</h2>
+  <p>A listing is not an endorsement, an assurance or a procurement route. Facts come from the owners' own publications, with the date and source beside each one. "Not declared" means the owner has not said, not that the answer is bad.</p>
+</section>
+
+<section class="view" id="store" data-title="App store" data-icon="store" aria-labelledby="st-h">
+  <h1 id="st-h">App store</h1>
+  <p class="lede">Platforms, products and components that UK public bodies make and run. Harvested listings come from each project's own publiccode.yml file; curated listings are written from public sources until the owner adds one.</p>
+  <h2 id="st-find" class="sr">Find a listing</h2>
+  <div class="filters" role="search" aria-label="Filter listings">
+    <label>Search listings<input type="search" id="fQ" placeholder="Name, owner or tag"></label>
+    <label>Category<select id="fCat"></select></label>
+    <label>Type of body<select id="fBody"></select></label>
+    <label>Kind<select id="fKind"></select></label>
+    <label>Licence<select id="fLic"></select></label>
+    <label>Sort<select id="fSort"><option value="name">Name</option><option value="owner">Owner</option><option value="cat">Category</option></select></label>
+  </div>
+  <p id="stCount" aria-live="polite"></p>
+  <h2 id="st-list" class="sr">Listings</h2>
+  <div class="grid g3" id="storeGrid"></div>
+  <h2 id="st-why">Why there are no stars</h2>
+  <p>Mobile stores rank apps by ratings and reviews. Here anyone could invent them and nobody could check them, so the hub shows only facts with sources: what it is, who owns it, how mature the owner says it is, its licence, and who declares they use it.</p>
+</section>
+
+<section class="view" id="adopt" data-title="List or claim" data-icon="plus" aria-labelledby="ad-h">
+  <h1 id="ad-h">List, claim or declare use</h1>
+  <p class="lede">Contact is by form only. Every form is a public GitHub issue, so don't include personal details.</p>
+  <h2 id="ad-list">List a product</h2>
+  <ol class="steps">
+    <li><strong>Add a publiccode.yml file</strong> to the root of the product's public repository. It is a short metadata file; the <a href="https://github.com/italia/publiccode.yml">standard</a> explains each field and <a href="https://developers.italia.it/en/guides/publishing-software-for-the-public-sector">Developers Italia's guide</a> shows a worked example.</li>
+    <li><strong>Submit the listing form</strong> with the repository address. <a data-form="2-listing.yml" href="#">Open the listing form</a>.</li>
+    <li><strong>Moderation</strong>: the editor checks that the body is a public body and the repository is real, then adds it to the weekly harvest, normally within 7 days.</li>
+    <li><strong>Weekly harvest</strong> reads the file every Monday, so changes you make to it appear within a week.</li>
+  </ol>
+  <h2 id="ad-claim">Claim a curated listing</h2>
+  <p>If a listing here describes your product, <a data-form="3-claim.yml" href="#">claim it</a>. Once your repository has a publiccode.yml file the curated text is replaced by your own.</p>
+  <h2 id="ad-use">Declare that your body uses a product</h2>
+  <p>Use shows only when a body says so itself. <a data-form="4-declare-use.yml" href="#">Declare use</a> with your body's name and, if you can, a public page that mentions it.</p>
+  <h2 id="ad-check">What moderation checks</h2>
+  <ul><li>The owner is a UK public body, or a supplier publishing on its behalf.</li><li>The repository and live service addresses work.</li><li>Facts that are not in publiccode.yml carry a public source.</li><li>Nothing personal: contact details in publiccode.yml are never shown here.</li></ul>
+</section>
+
+<section class="view" id="developers" data-title="Developers" data-icon="code" aria-labelledby="dv-h">
+  <h1 id="dv-h">Developers</h1>
+  <p class="lede">Common platforms to build on, the standards that ask you to reuse them, and the hub's own open data.</p>
+  <div class="tabs" role="tablist" aria-label="Developer topics" data-tabs="dv">
+    <button role="tab" aria-selected="true" aria-controls="dv-platforms" id="t-dv-platforms">Common platforms</button>
+    <button role="tab" aria-selected="false" aria-controls="dv-standards" id="t-dv-standards">Standards</button>
+    <button role="tab" aria-selected="false" aria-controls="dv-data" id="t-dv-data">Open data</button>
+    <button role="tab" aria-selected="false" aria-controls="dv-harvest" id="t-dv-harvest">How the harvest works</button>
+  </div>
+  <div class="tp on" role="tabpanel" id="dv-platforms" aria-labelledby="t-dv-platforms"><h2 id="dv-h-platforms">Common platforms</h2><div class="grid g3" id="dvPlatforms"></div></div>
+  <div class="tp" role="tabpanel" id="dv-standards" aria-labelledby="t-dv-standards"><h2 id="dv-h-standards">Standards that ask you to reuse</h2><ul id="dvStandards"></ul></div>
+  <div class="tp" role="tabpanel" id="dv-data" aria-labelledby="t-dv-data"><h2 id="dv-h-data">Open data</h2><p>Everything on this site is in open JSON files you can harvest, under CC BY 4.0.</p><ul><li><a href="data/hub.json">data/hub.json</a>: listings, sources, glossary, requirements</li><li><a href="data/harvested.json">data/harvested.json</a>: the latest harvest from publiccode.yml files</li><li><a href="data/reconciliation.json">data/reconciliation.json</a>: the Figma prototype reconciliation register</li></ul><p>The listing fields are explained in the <a href="#knowledge" data-tab-target="kn-dict">data dictionary</a>.</p></div>
+  <div class="tp" role="tabpanel" id="dv-harvest" aria-labelledby="t-dv-harvest"><h2 id="dv-h-harvest">How the harvest works</h2><ol class="steps"><li>Every Monday a free GitHub Actions job reads the repositories on the harvest list.</li><li>It fetches each publiccode.yml file and keeps only the fields the hub shows: name, description, maturity, licence, platforms, categories, the live address and the owner.</li><li>It removes every contact detail and email address before saving.</li><li>It runs the same checks as every release, then republishes the site. If a check fails, nothing is published and an issue is opened.</li></ol><p><span class="pulse" aria-hidden="true"></span>Last harvest: <span data-bind="harvestDate"></span>, <span data-bind="harvestCount"></span>.</p></div>
+</section>
+
+<section class="view" id="directories" data-title="Directories" data-icon="link" aria-labelledby="di-h">
+  <h1 id="di-h">Other directories</h1>
+  <p class="lede">Where a directory already does the job, the hub links to it rather than copying it.</p>
+  <div id="dirList"></div>
+</section>
+
+<section class="view" id="ecosystem" data-title="Ecosystem" data-icon="compass" aria-labelledby="ec-h">
+  <h1 id="ec-h">Ecosystem</h1>
+  <p class="lede">Standards, learning, data portals and communities, kept from the original prototype as links to the official sites, without the prototype's invented numbers.</p>
+  <div class="tabs" role="tablist" aria-label="Ecosystem topics" data-tabs="ec" id="ecTabs"></div>
+  <div id="ecPanels"></div>
+</section>
+
+<section class="view" id="knowledge" data-title="Knowledge" data-icon="graph" aria-labelledby="kn-h">
+  <h1 id="kn-h">Knowledge</h1>
+  <div class="tabs" role="tablist" aria-label="Knowledge views" data-tabs="kn">
+    <button role="tab" aria-selected="true" aria-controls="kn-gloss" id="t-kn-gloss">Glossary</button>
+    <button role="tab" aria-selected="false" aria-controls="kn-graph" id="t-kn-graph">Knowledge graph</button>
+    <button role="tab" aria-selected="false" aria-controls="kn-dict" id="t-kn-dict">Data dictionary</button>
+  </div>
+  <div class="tp on" role="tabpanel" id="kn-gloss" aria-labelledby="t-kn-gloss"><h2 id="kn-h-gloss">Glossary</h2><label>Filter terms <input type="search" id="gq"></label><dl id="glist"></dl></div>
+  <div class="tp" role="tabpanel" id="kn-graph" aria-labelledby="t-kn-graph"><h2 id="kn-h-graph">Knowledge graph</h2><p>Listings linked to their owners, categories and sources. Select a node to open it. The same links are listed in text below the graph.</p><svg id="kg" role="img" aria-labelledby="kgT"><title id="kgT">Graph of listings, owners, categories and sources</title></svg><details><summary>The graph as text</summary><ul id="kgText"></ul></details></div>
+  <div class="tp" role="tabpanel" id="kn-dict" aria-labelledby="t-kn-dict"><h2 id="kn-h-dict">Data dictionary</h2><div class="tw"><table><thead><tr><th scope="col">Field</th><th scope="col">Meaning</th><th scope="col">From publiccode.yml</th></tr></thead><tbody id="dictBody"></tbody></table></div></div>
+</section>
+
+<section class="view" id="documents" data-title="Documents" data-icon="doc" aria-labelledby="do-h">
+  <h1 id="do-h">Documents</h1>
+  <div class="tabs" role="tablist" aria-label="Documents" data-tabs="do">
+    <button role="tab" aria-selected="true" aria-controls="do-req" id="t-do-req">Requirements</button>
+    <button role="tab" aria-selected="false" aria-controls="do-rec" id="t-do-rec">Prototype reconciliation</button>
+    <button role="tab" aria-selected="false" aria-controls="do-toc" id="t-do-toc">Theory of change</button>
+    <button role="tab" aria-selected="false" aria-controls="do-arch" id="t-do-arch">Architecture</button>
+  </div>
+  <div class="tp on" role="tabpanel" id="do-req" aria-labelledby="t-do-req"><h2 id="do-h-req">Requirements, traced to user needs and checks</h2><div id="needs"></div><div class="tw"><table><thead><tr><th scope="col">ID</th><th scope="col">Requirement</th><th scope="col">User needs</th><th scope="col">Where</th><th scope="col">Checks</th><th scope="col">Status</th></tr></thead><tbody id="reqBody"></tbody></table></div></div>
+  <div class="tp" role="tabpanel" id="do-rec" aria-labelledby="t-do-rec"><h2 id="do-h-rec">Reconciliation register: Figma prototype</h2><p id="recAbout"></p><label>Show decision <select id="recF"><option value="">All</option><option>Keep</option><option>Improve</option><option>Link</option><option>Drop</option></select></label><p id="recCount" aria-live="polite"></p><div class="tw"><table><thead id="recHead"></thead><tbody id="recBody"></tbody></table></div></div>
+  <div class="tp" role="tabpanel" id="do-toc" aria-labelledby="t-do-toc"><h2 id="do-h-toc">Theory of change</h2><ol class="steps"><li><strong>Problem</strong>: public bodies rebuild things other bodies already run, because finding them means reading many blogs and repositories.</li><li><strong>Activity</strong>: one directory, harvested from the owners' own metadata, with sources on every fact.</li><li><strong>Output</strong>: listings anyone can filter, search, cite and harvest.</li><li><strong>Outcome</strong>: teams check the hub before they build, and owners keep their publiccode.yml current.</li><li><strong>Assumption to test</strong>: owners will add publiccode.yml. Today none of the twelve UK repositories listed here has one, so the hub starts curated and says so.</li></ol></div>
+  <div class="tp" role="tabpanel" id="do-arch" aria-labelledby="t-do-arch"><h2 id="do-h-arch">Architecture</h2>
+    <svg viewBox="0 0 640 200" role="img" aria-label="Diagram: publiccode.yml files and the curated list feed the weekly harvest job, which runs checks and publishes a static site to GitHub Pages; issue forms feed moderation, which updates the list" style="max-width:100%;height:auto">
+      <g font-size="12" fill="var(--ink)"><rect x="10" y="20" width="140" height="44" rx="8" fill="var(--brand-soft)" stroke="var(--brand)"/><text x="80" y="47" text-anchor="middle">publiccode.yml files</text>
+      <rect x="10" y="120" width="140" height="44" rx="8" fill="var(--accent-soft)" stroke="var(--accent)"/><text x="80" y="147" text-anchor="middle">Issue forms</text>
+      <rect x="230" y="20" width="150" height="44" rx="8" fill="var(--surface)" stroke="var(--brand)"/><text x="305" y="47" text-anchor="middle">Weekly harvest + checks</text>
+      <rect x="230" y="120" width="150" height="44" rx="8" fill="var(--surface)" stroke="var(--accent)"/><text x="305" y="147" text-anchor="middle">Moderation (editor)</text>
+      <rect x="460" y="70" width="170" height="44" rx="8" fill="var(--brand)"/><text x="545" y="97" text-anchor="middle" fill="var(--brand-ink)">Static site on Pages</text></g>
+      <g stroke="var(--muted)" stroke-width="2" fill="none"><path d="M150 42h80M150 142h80M305 120V64M380 42l80 40M380 142l80-40"/></g>
+    </svg>
+    <ul><li>One self-contained page, built from JSON by <code>tools/build.py</code>; no server, no cookies, no tracking.</li><li>Free GitHub Actions only, every action pinned to a commit.</li><li>Decision: no ratings or reviews (they cannot be verified). Decision: link to existing directories rather than copy them.</li></ul></div>
+</section>
+
+<section class="view" id="about" data-title="About" data-icon="info" aria-labelledby="ab-h">
+  <h1 id="ab-h">About</h1>
+  <h2 id="ab-effort">Effort to keep it running</h2>
+  <p>About 30 to 60 minutes a week for one person (estimate): read new issue forms, add accepted repositories to the harvest list, and glance at the weekly run. A monthly link check opens an issue only when a link breaks. Running cost: nothing; it uses free GitHub Pages and Actions on a public repository.</p>
+  <h2 id="ab-method">Method</h2>
+  <p>Facts come from owners' own publications, read on the evidence date shown. Licences come from the licence file in each repository. Maturity is shown only when an owner declares it. Anything the editor could not check is left out rather than estimated.</p>
+  <h2 id="ab-against">The case against this hub</h2>
+  <ul>
+    <li><strong>"Another directory nobody updates."</strong> The base rate for government catalogues going stale is high. Answer: the hub reads owners' own files weekly, links to directories that already exist, and shows its harvest date on the page.</li>
+    <li><strong>"Twelve listings is not a store."</strong> True today. Answer: the first listings are the best-evidenced common platforms; growth depends on owners adding publiccode.yml, which none of the twelve has yet. That is the hub's main risk, stated here first.</li>
+    <li><strong>"Usage figures are owners marketing themselves."</strong> Partly. Answer: they are labelled with their source and date, and the hub shows declared users separately.</li>
+    <li><strong>"It duplicates the API catalogue or the NHS login directory."</strong> Answer: it links to them instead of copying them.</li>
+  </ul>
+  <h2 id="ab-checks">Self-checks</h2>
+  <p id="checksSummary" aria-live="polite"></p>
+  <div class="tw"><table><thead><tr><th scope="col">Check</th><th scope="col">Result</th><th scope="col">Negative test</th></tr></thead><tbody id="checksBody"></tbody></table></div>
+  <h2 id="ab-defects">Defect register</h2>
+  <div class="tw"><table><thead><tr><th scope="col">ID</th><th scope="col">Found</th><th scope="col">Defect</th><th scope="col">Root cause</th><th scope="col">Prevention</th><th scope="col">Checks</th></tr></thead><tbody id="defBody"></tbody></table></div>
+  <h2 id="ab-sources">Sources</h2>
+  <ol id="srcList"></ol>
+  <h2 id="ab-contact">Contact</h2>
+  <p>Use the <a data-form="0-contact.yml" href="#">contact form</a>. Corrections and accessibility problems have their own forms: <a data-form="1-correction.yml" href="#">report a correction</a>, <a data-form="5-accessibility.yml" href="#">report an accessibility problem</a>. We never publish email addresses.</p>
+</section>

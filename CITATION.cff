@@ -1,0 +1,15 @@
+cff-version: 1.2.0
+message: "Code is MIT; content and data are CC BY 4.0. If you use the Public Sector Tech Hub in research or a publication, please cite it as below."
+title: "Public Sector Tech Hub"
+abstract: "An open directory of what UK public bodies make, run and deploy that others can adopt: an app store harvested weekly from publiccode.yml files, with licence, code, live service and sourced facts for every listing, and no ratings or reviews."
+type: software
+authors:
+  - given-names: Emanuel
+    family-names: Silva
+    orcid: "https://orcid.org/0009-0000-5880-7219"
+repository-code: "https://github.com/cyberdudeuk/pubsec-tech-hub"
+url: "https://cyberdudeuk.github.io/pubsec-tech-hub/"
+license: [MIT, CC-BY-4.0]
+version: "1.0.0"
+date-released: "2026-11-24"
+keywords: [govtech, public sector, open source, publiccode.yml, app store, reuse, common platforms, UK government]

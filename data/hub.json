@@ -1,0 +1,981 @@
+{
+  "meta": {
+    "name": "Public Sector Tech Hub",
+    "short": "pubsec-tech-hub",
+    "version": "1.0.0",
+    "evidence_date": "2026-11-24",
+    "url": "https://cyberdudeuk.github.io/pubsec-tech-hub/",
+    "repo": "https://github.com/cyberdudeuk/pubsec-tech-hub",
+    "status": "Prototype",
+    "changed": []
+  },
+  "sources": {
+    "S1": {
+      "t": "More than a helpdesk: user support's role in helping GOV.UK Notify send 12 billion messages (GDS blog, 5 Feb 2026)",
+      "url": "https://gds.blog.gov.uk/2026/02/05/more-than-a-helpdesk-user-supports-role-in-helping-gov-uk-notify-send-12-billion-messages/"
+    },
+    "S2": {
+      "t": "How common platforms deliver brilliant digital services (GDS blog, 8 Aug 2023), section 'What's been delivered'",
+      "url": "https://gds.blog.gov.uk/2023/08/08/how-common-platforms-deliver-brilliant-digital-services/"
+    },
+    "S3": {
+      "t": "GOV.UK app: one year of easier, faster services in your pocket (GDS blog, 1 Jul 2026)",
+      "url": "https://gds.blog.gov.uk/2026/07/01/gov-uk-app-one-year-of-easier-faster-services-in-your-pocket/"
+    },
+    "S4": {
+      "t": "Adopting open-source in local government (Technology in government blog, 27 May 2026)",
+      "url": "https://technology.blog.gov.uk/2026/05/27/adopting-open-source-in-local-government/"
+    },
+    "S5": {
+      "t": "Websites and apps you can access with NHS login (NHS website)",
+      "url": "https://www.nhs.uk/nhs-services/nhs-login/websites-and-apps-you-can-access-with-nhs-login/"
+    },
+    "S6": {
+      "t": "publiccode.yml standard (repository now maintained under italia/publiccode.yml)",
+      "url": "https://github.com/italia/publiccode.yml"
+    },
+    "S7": {
+      "t": "Publishing software for the public sector (Developers Italia guide), section 'Prepare publiccode.yml'",
+      "url": "https://developers.italia.it/en/guides/publishing-software-for-the-public-sector"
+    },
+    "S8": {
+      "t": "GOV.UK Forms home page: 'free to use for central government'",
+      "url": "https://www.forms.service.gov.uk/"
+    },
+    "S9": {
+      "t": "Service Standard point 11: Choose the right tools and technology",
+      "url": "https://www.gov.uk/service-manual/service-standard/point-11-choose-the-right-tools-and-technology"
+    },
+    "S10": {
+      "t": "Service Standard point 12: Make new source code open",
+      "url": "https://www.gov.uk/service-manual/service-standard/point-12-make-new-source-code-open"
+    },
+    "S11": {
+      "t": "Service Standard point 13: Use and contribute to open standards, common components and patterns",
+      "url": "https://www.gov.uk/service-manual/service-standard/point-13-use-common-standards-components-patterns"
+    },
+    "S12": {
+      "t": "Technology Code of Practice point 3: Be open and use open source",
+      "url": "https://www.gov.uk/guidance/be-open-and-use-open-source"
+    },
+    "S13": {
+      "t": "Technology Code of Practice point 4: Make use of open standards",
+      "url": "https://www.gov.uk/guidance/make-use-of-open-standards"
+    },
+    "S14": {
+      "t": "Technology Code of Practice point 8: Share, reuse and collaborate",
+      "url": "https://www.gov.uk/guidance/share-and-reuse-technology"
+    },
+    "S15": {
+      "t": "Service Manual: Making source code open and reusable",
+      "url": "https://www.gov.uk/service-manual/technology/making-source-code-open-and-reusable"
+    },
+    "S16": {
+      "t": "Repository licence files, read on 24 Nov 2026 (LICENSE or LICENCE at the repository root)",
+      "url": "#store"
+    }
+  },
+  "listings": [
+    {
+      "id": "govuk-notify",
+      "name": "GOV.UK Notify",
+      "kind": "Platform",
+      "cat": "Messaging",
+      "owner": "Government Digital Service",
+      "body": "Central government",
+      "nation": "UK",
+      "summary": "Send emails, text messages and letters to the public from a service.",
+      "maturity": "Not declared",
+      "licence": "MIT",
+      "code": [
+        "https://github.com/alphagov/notifications-api",
+        "https://github.com/alphagov/notifications-admin"
+      ],
+      "live": "https://www.notifications.service.gov.uk/",
+      "figures": [
+        {
+          "t": "12 billion messages sent since May 2016",
+          "s": "S1"
+        },
+        {
+          "t": "More than 11,000 public sector services use it",
+          "s": "S1"
+        }
+      ],
+      "users": [],
+      "pc": false,
+      "s": [
+        "S1",
+        "S16"
+      ],
+      "tags": [
+        "email",
+        "SMS",
+        "letters",
+        "common platform"
+      ]
+    },
+    {
+      "id": "govuk-pay",
+      "name": "GOV.UK Pay",
+      "kind": "Platform",
+      "cat": "Payments",
+      "owner": "Government Digital Service",
+      "body": "Central government",
+      "nation": "UK",
+      "summary": "Take card and wallet payments in a public service.",
+      "maturity": "Not declared",
+      "licence": "MIT",
+      "code": [
+        "https://github.com/alphagov/pay-frontend"
+      ],
+      "live": "https://www.payments.service.gov.uk/",
+      "figures": [
+        {
+          "t": "23 million payments and £1.3bn handled in the financial year before August 2023",
+          "s": "S2"
+        },
+        {
+          "t": "163 services onboarded in the 12 months to August 2023",
+          "s": "S2"
+        }
+      ],
+      "users": [],
+      "pc": false,
+      "s": [
+        "S2",
+        "S16"
+      ],
+      "tags": [
+        "payments",
+        "common platform"
+      ]
+    },
+    {
+      "id": "govuk-forms",
+      "name": "GOV.UK Forms",
+      "kind": "Platform",
+      "cat": "Forms",
+      "owner": "Government Digital Service",
+      "body": "Central government",
+      "nation": "UK",
+      "summary": "Create accessible online forms without code.",
+      "maturity": "Not declared",
+      "licence": "MIT",
+      "code": [
+        "https://github.com/alphagov/forms-runner",
+        "https://github.com/alphagov/forms-admin"
+      ],
+      "live": "https://www.forms.service.gov.uk/",
+      "figures": [
+        {
+          "t": "Free to use for central government",
+          "s": "S8"
+        }
+      ],
+      "users": [],
+      "pc": false,
+      "s": [
+        "S8",
+        "S16"
+      ],
+      "tags": [
+        "forms",
+        "no-code",
+        "common platform"
+      ]
+    },
+    {
+      "id": "govuk-one-login",
+      "name": "GOV.UK One Login",
+      "kind": "Platform",
+      "cat": "Identity",
+      "owner": "Government Digital Service",
+      "body": "Central government",
+      "nation": "UK",
+      "summary": "Sign-in and identity checking for government services.",
+      "maturity": "Not declared",
+      "licence": "MIT",
+      "code": [
+        "https://github.com/govuk-one-login/authentication-api"
+      ],
+      "live": "https://www.sign-in.service.gov.uk/",
+      "figures": [],
+      "users": [],
+      "pc": false,
+      "s": [
+        "S16"
+      ],
+      "tags": [
+        "identity",
+        "sign-in",
+        "common platform"
+      ]
+    },
+    {
+      "id": "govuk-frontend",
+      "name": "GOV.UK Design System (GOV.UK Frontend)",
+      "kind": "Component library",
+      "cat": "Design",
+      "owner": "Government Digital Service",
+      "body": "Central government",
+      "nation": "UK",
+      "summary": "Styles, components and patterns for building GOV.UK services.",
+      "maturity": "Not declared",
+      "licence": "MIT",
+      "code": [
+        "https://github.com/alphagov/govuk-frontend"
+      ],
+      "live": "https://design-system.service.gov.uk/",
+      "figures": [],
+      "users": [],
+      "pc": false,
+      "s": [
+        "S2",
+        "S16"
+      ],
+      "tags": [
+        "design system",
+        "components",
+        "accessibility"
+      ]
+    },
+    {
+      "id": "govuk-prototype-kit",
+      "name": "GOV.UK Prototype Kit",
+      "kind": "Tool",
+      "cat": "Design",
+      "owner": "Government Digital Service",
+      "body": "Central government",
+      "nation": "UK",
+      "summary": "Make realistic, testable prototypes of services.",
+      "maturity": "Not declared",
+      "licence": "MIT",
+      "code": [
+        "https://github.com/alphagov/govuk-prototype-kit"
+      ],
+      "live": "https://prototype-kit.service.gov.uk/",
+      "figures": [],
+      "users": [],
+      "pc": false,
+      "s": [
+        "S2",
+        "S16"
+      ],
+      "tags": [
+        "prototyping",
+        "user research"
+      ]
+    },
+    {
+      "id": "govuk-app",
+      "name": "GOV.UK app",
+      "kind": "App",
+      "cat": "Citizen apps",
+      "owner": "Government Digital Service",
+      "body": "Central government",
+      "nation": "UK",
+      "summary": "The government's mobile app for iOS and Android.",
+      "maturity": "Not declared",
+      "licence": "No licence file at the repository root",
+      "code": [
+        "https://github.com/alphagov/govuk-mobile-ios-app",
+        "https://github.com/alphagov/govuk-mobile-android-app"
+      ],
+      "live": "",
+      "figures": [
+        {
+          "t": "Went live in July 2025",
+          "s": "S3"
+        },
+        {
+          "t": "Over 600,000 downloads",
+          "s": "S3"
+        },
+        {
+          "t": "GOV.UK Chat is its latest feature (as of July 2026)",
+          "s": "S3"
+        }
+      ],
+      "users": [],
+      "pc": false,
+      "s": [
+        "S3",
+        "S16"
+      ],
+      "tags": [
+        "mobile",
+        "iOS",
+        "Android"
+      ]
+    },
+    {
+      "id": "govuk-chat",
+      "name": "GOV.UK Chat",
+      "kind": "Product",
+      "cat": "AI",
+      "owner": "Government Digital Service",
+      "body": "Central government",
+      "nation": "UK",
+      "summary": "AI-enabled answers to questions about government, offered in the GOV.UK app.",
+      "maturity": "Not declared",
+      "licence": "MIT",
+      "code": [
+        "https://github.com/alphagov/govuk-chat"
+      ],
+      "live": "",
+      "figures": [
+        {
+          "t": "Added to the GOV.UK app as its latest feature (as of July 2026)",
+          "s": "S3"
+        }
+      ],
+      "users": [],
+      "pc": false,
+      "s": [
+        "S3",
+        "S16"
+      ],
+      "tags": [
+        "AI",
+        "chat",
+        "generative AI"
+      ]
+    },
+    {
+      "id": "localgov-drupal",
+      "name": "LocalGov Drupal",
+      "kind": "Product",
+      "cat": "Web publishing",
+      "owner": "LocalGov Drupal community of councils",
+      "body": "Local government",
+      "nation": "UK",
+      "summary": "A shared, open source website platform for councils, built on Drupal.",
+      "maturity": "Not declared",
+      "licence": "GPL-2.0-or-later",
+      "code": [
+        "https://github.com/localgovdrupal/localgov"
+      ],
+      "live": "https://localgovdrupal.org/",
+      "figures": [
+        {
+          "t": "Used by around 60 councils and 23 vendors",
+          "s": "S4"
+        },
+        {
+          "t": "Reported saving: £30,000 to £90,000 on developer costs per council (figures compiled by Open Digital Cooperative, quoted by the blog)",
+          "s": "S4"
+        }
+      ],
+      "users": [],
+      "pc": false,
+      "s": [
+        "S4",
+        "S16"
+      ],
+      "tags": [
+        "CMS",
+        "websites",
+        "councils",
+        "Drupal"
+      ]
+    },
+    {
+      "id": "nhsuk-frontend",
+      "name": "NHS.UK frontend",
+      "kind": "Component library",
+      "cat": "Design",
+      "owner": "NHS England",
+      "body": "NHS",
+      "nation": "England",
+      "summary": "Components and styles for NHS websites and services.",
+      "maturity": "Not declared",
+      "licence": "MIT",
+      "code": [
+        "https://github.com/nhsuk/nhsuk-frontend"
+      ],
+      "live": "https://service-manual.nhs.uk/design-system",
+      "figures": [],
+      "users": [],
+      "pc": false,
+      "s": [
+        "S16"
+      ],
+      "tags": [
+        "design system",
+        "NHS",
+        "components"
+      ]
+    },
+    {
+      "id": "moj-frontend",
+      "name": "MoJ Design System (MoJ Frontend)",
+      "kind": "Component library",
+      "cat": "Design",
+      "owner": "Ministry of Justice",
+      "body": "Central government",
+      "nation": "UK",
+      "summary": "Components and patterns for justice services, built on GOV.UK Frontend.",
+      "maturity": "Not declared",
+      "licence": "MIT",
+      "code": [
+        "https://github.com/ministryofjustice/moj-frontend"
+      ],
+      "live": "https://design-patterns.service.justice.gov.uk/",
+      "figures": [],
+      "users": [],
+      "pc": false,
+      "s": [
+        "S16"
+      ],
+      "tags": [
+        "design system",
+        "justice",
+        "components"
+      ]
+    },
+    {
+      "id": "api-catalogue",
+      "name": "UK government API catalogue",
+      "kind": "Directory",
+      "cat": "APIs",
+      "owner": "Government Digital Service",
+      "body": "Central government",
+      "nation": "UK",
+      "summary": "A catalogue of APIs published by the UK public sector.",
+      "maturity": "Not declared",
+      "licence": "MIT",
+      "code": [
+        "https://github.com/co-cddo/api-catalogue"
+      ],
+      "live": "https://www.api.gov.uk/",
+      "figures": [],
+      "users": [],
+      "pc": false,
+      "s": [
+        "S16"
+      ],
+      "tags": [
+        "APIs",
+        "catalogue"
+      ]
+    }
+  ],
+  "directories": [
+    {
+      "n": "NHS login: websites and apps you can access",
+      "u": "https://www.nhs.uk/nhs-services/nhs-login/websites-and-apps-you-can-access-with-nhs-login/",
+      "d": "The NHS's own list of services that use NHS login. Use it for health apps rather than a copy here.",
+      "g": "Health"
+    },
+    {
+      "n": "UK government API catalogue",
+      "u": "https://www.api.gov.uk/",
+      "d": "APIs published by public bodies.",
+      "g": "APIs"
+    },
+    {
+      "n": "Digital Marketplace",
+      "u": "https://www.applytosupply.digitalmarketplace.service.gov.uk/",
+      "d": "Where suppliers apply to frameworks such as G-Cloud.",
+      "g": "Buying"
+    },
+    {
+      "n": "G-Cloud 14 agreement (Government Commercial Agency)",
+      "u": "https://www.gca.gov.uk/agreements/RM1557.14",
+      "d": "The framework for buying cloud hosting, software and support.",
+      "g": "Buying"
+    },
+    {
+      "n": "Developers Italia software catalogue",
+      "u": "https://catalogo-software.developers.italia.it/",
+      "d": "Italy's catalogue of reusable public software, harvested from publiccode.yml. The model this hub follows.",
+      "g": "International reuse"
+    },
+    {
+      "n": "publiccode.yml standard",
+      "u": "https://github.com/italia/publiccode.yml",
+      "d": "The metadata file this hub harvests.",
+      "g": "International reuse"
+    },
+    {
+      "n": "X-GOVUK",
+      "u": "https://x-govuk.org/",
+      "d": "Community-made tools and components that extend GOV.UK Frontend.",
+      "g": "Community"
+    },
+    {
+      "n": "GitHub Repos Asset Catalogue",
+      "u": "https://cyberdudeuk.github.io/github-repos-asset-catalogue/",
+      "d": "Sister site: public sector code that exists and what you could reuse.",
+      "g": "Sister sites"
+    },
+    {
+      "n": "Legacy Technology Observatory",
+      "u": "https://cyberdudeuk.github.io/legacy-technology-observatory/",
+      "d": "Sister site: what is old and risky, and what you need to replace.",
+      "g": "Sister sites"
+    }
+  ],
+  "ecosystem": {
+    "Standards": [
+      {
+        "n": "Service Standard point 11: Choose the right tools and technology",
+        "u": "https://www.gov.uk/service-manual/service-standard/point-11-choose-the-right-tools-and-technology"
+      },
+      {
+        "n": "Service Standard point 12: Make new source code open",
+        "u": "https://www.gov.uk/service-manual/service-standard/point-12-make-new-source-code-open"
+      },
+      {
+        "n": "Service Standard point 13: Use and contribute to open standards, common components and patterns",
+        "u": "https://www.gov.uk/service-manual/service-standard/point-13-use-common-standards-components-patterns"
+      },
+      {
+        "n": "Technology Code of Practice point 3: Be open and use open source",
+        "u": "https://www.gov.uk/guidance/be-open-and-use-open-source"
+      },
+      {
+        "n": "Technology Code of Practice point 4: Make use of open standards",
+        "u": "https://www.gov.uk/guidance/make-use-of-open-standards"
+      },
+      {
+        "n": "Technology Code of Practice point 8: Share, reuse and collaborate",
+        "u": "https://www.gov.uk/guidance/share-and-reuse-technology"
+      },
+      {
+        "n": "Making source code open and reusable (Service Manual)",
+        "u": "https://www.gov.uk/service-manual/technology/making-source-code-open-and-reusable"
+      },
+      {
+        "n": "The GDS Way",
+        "u": "https://gds-way.digital.cabinet-office.gov.uk/"
+      }
+    ],
+    "Learning": [
+      {
+        "n": "Government Digital and Data Profession Capability Framework",
+        "u": "https://understand-digital-data-roles-skills.service.gov.uk/"
+      },
+      {
+        "n": "Civil Service Learning",
+        "u": "https://learn.civilservice.gov.uk/"
+      },
+      {
+        "n": "SFIA (Skills Framework for the Information Age)",
+        "u": "https://sfia-online.org/"
+      }
+    ],
+    "Data portals": [
+      {
+        "n": "data.gov.uk",
+        "u": "https://www.data.gov.uk/"
+      },
+      {
+        "n": "Office for National Statistics",
+        "u": "https://www.ons.gov.uk/"
+      },
+      {
+        "n": "OS Data Hub (Ordnance Survey)",
+        "u": "https://osdatahub.os.uk/"
+      }
+    ],
+    "Communities": [
+      {
+        "n": "LocalGov Drupal",
+        "u": "https://localgovdrupal.org/"
+      },
+      {
+        "n": "X-GOVUK",
+        "u": "https://x-govuk.org/"
+      },
+      {
+        "n": "Government Digital Service blog",
+        "u": "https://gds.blog.gov.uk/"
+      },
+      {
+        "n": "Technology in government blog",
+        "u": "https://technology.blog.gov.uk/"
+      }
+    ]
+  },
+  "glossary": [
+    [
+      "App store",
+      "Here: a directory of what public bodies make and run that others can adopt. Unlike a mobile store it sells nothing and shows no ratings.",
+      "Hub"
+    ],
+    [
+      "Listing",
+      "One product in the store, with its owner, licence, code, live service and sourced facts.",
+      "Hub"
+    ],
+    [
+      "Curated listing",
+      "A listing written by the editor from public sources because the project has no publiccode.yml yet.",
+      "Hub"
+    ],
+    [
+      "Harvested listing",
+      "A listing read automatically from a project's publiccode.yml file during the weekly harvest.",
+      "Hub"
+    ],
+    [
+      "Declared user",
+      "A public body that has said, through the issue form, that it uses a product. The hub never infers use.",
+      "Hub"
+    ],
+    [
+      "publiccode.yml",
+      "A metadata file placed at the root of a public software repository so catalogues can discover it.",
+      "Standard"
+    ],
+    [
+      "developmentStatus",
+      "The publiccode.yml field for maturity: concept, development, beta, stable or obsolete.",
+      "Standard"
+    ],
+    [
+      "Maturity",
+      "How ready a product is to adopt. The hub shows only what the owner declares; otherwise 'Not declared'.",
+      "Hub"
+    ],
+    [
+      "Common platform",
+      "A shared service, such as GOV.UK Notify or GOV.UK Pay, that many services use instead of building their own.",
+      "Government"
+    ],
+    [
+      "Open source",
+      "Code published under a licence that lets anyone use, change and share it.",
+      "Licensing"
+    ],
+    [
+      "MIT licence",
+      "A short permissive open source licence.",
+      "Licensing"
+    ],
+    [
+      "GPL",
+      "A copyleft licence: changed versions you distribute must stay under the GPL.",
+      "Licensing"
+    ],
+    [
+      "CC BY 4.0",
+      "A Creative Commons licence for content: reuse freely with attribution.",
+      "Licensing"
+    ],
+    [
+      "Service Standard",
+      "The 14 points that government services are assessed against.",
+      "Government"
+    ],
+    [
+      "Technology Code of Practice",
+      "The criteria government uses to design, build and buy technology.",
+      "Government"
+    ],
+    [
+      "Moderation",
+      "The editor's weekly review of submitted and claimed listings before they are published.",
+      "Hub"
+    ],
+    [
+      "Ask",
+      "The hub's assistant. It searches only the hub's own content and shows where each answer came from.",
+      "Hub"
+    ]
+  ],
+  "user_needs": [
+    [
+      "N1",
+      "As someone building a public service, I need to find what other public bodies already run, so that I do not build it again."
+    ],
+    [
+      "N2",
+      "As someone choosing a product, I need maturity, licence and code links in one place, so that I can judge whether I can adopt it."
+    ],
+    [
+      "N3",
+      "As a public body, I need to list or claim my product without writing code, so that others can find it."
+    ],
+    [
+      "N4",
+      "As a reader, I need every figure to show its source, so that I can trust and check it."
+    ],
+    [
+      "N5",
+      "As the editor, I need the hub to run itself in under an hour a week, so that one person can sustain it."
+    ],
+    [
+      "N6",
+      "As anyone, I need the hub to work on a phone, with a keyboard or a screen reader, in light or dark, so that I can use it."
+    ]
+  ],
+  "requirements": [
+    [
+      "R1",
+      "Show every listing with owner, licence, code and live links",
+      [
+        "N1",
+        "N2"
+      ],
+      "store",
+      [
+        "listings_complete"
+      ],
+      "Done"
+    ],
+    [
+      "R2",
+      "Filter and sort listings by category, body type, kind and licence",
+      [
+        "N1"
+      ],
+      "store",
+      [
+        "filters_work"
+      ],
+      "Done"
+    ],
+    [
+      "R3",
+      "Show maturity only as declared; otherwise 'Not declared'",
+      [
+        "N2",
+        "N4"
+      ],
+      "store",
+      [
+        "maturity_vocab"
+      ],
+      "Done"
+    ],
+    [
+      "R4",
+      "Never show star ratings or reviews",
+      [
+        "N4"
+      ],
+      "store",
+      [
+        "no_ratings"
+      ],
+      "Done"
+    ],
+    [
+      "R5",
+      "Every figure cites a known source with an https address",
+      [
+        "N4"
+      ],
+      "all",
+      [
+        "citations_known",
+        "sources_https"
+      ],
+      "Done"
+    ],
+    [
+      "R6",
+      "Harvest publiccode.yml weekly and open a pull request with changes",
+      [
+        "N3",
+        "N5"
+      ],
+      "adopt",
+      [
+        "harvest_parses",
+        "harvest_strips_contacts"
+      ],
+      "Done"
+    ],
+    [
+      "R7",
+      "List or claim a product through a GitHub issue form, never by email",
+      [
+        "N3"
+      ],
+      "adopt",
+      [
+        "no_emails",
+        "issue_forms"
+      ],
+      "Done"
+    ],
+    [
+      "R8",
+      "Search across the whole hub and an Ask assistant grounded in hub content",
+      [
+        "N1"
+      ],
+      "all",
+      [
+        "search_finds",
+        "ask_grounded"
+      ],
+      "Done"
+    ],
+    [
+      "R9",
+      "Retractable left drawer with a labelled toggle inside it; folding global navigation",
+      [
+        "N6"
+      ],
+      "all",
+      [
+        "drawer_toggle",
+        "nav_folds"
+      ],
+      "Done"
+    ],
+    [
+      "R10",
+      "No horizontal scroll at 400px; light and dark themes; reduced motion respected",
+      [
+        "N6"
+      ],
+      "all",
+      [
+        "visual_qa",
+        "reduced_motion"
+      ],
+      "Done"
+    ],
+    [
+      "R11",
+      "Link to existing directories instead of copying them",
+      [
+        "N1",
+        "N5"
+      ],
+      "directories",
+      [
+        "directories_linked"
+      ],
+      "Done"
+    ],
+    [
+      "R12",
+      "Publish the reconciliation register for the Figma prototype",
+      [
+        "N4"
+      ],
+      "documents",
+      [
+        "register_complete"
+      ],
+      "Done"
+    ],
+    [
+      "R13",
+      "Show the editor's weekly effort and the running costs openly",
+      [
+        "N5"
+      ],
+      "about",
+      [
+        "effort_stated"
+      ],
+      "Done"
+    ],
+    [
+      "R14",
+      "Show who declares use of each listing, as each body declares it",
+      [
+        "N2"
+      ],
+      "store",
+      [
+        "users_declared_only"
+      ],
+      "Planned"
+    ]
+  ],
+  "defects": [
+    [
+      "D1",
+      "2026-11-24",
+      "Prototype carried invented figures (342 apps, 58M+ users, star ratings)",
+      "The prototype was a design mock with no data sources",
+      "Every listing figure must cite a known source; ratings fields are rejected",
+      [
+        "citations_known",
+        "no_ratings"
+      ]
+    ],
+    [
+      "D2",
+      "2026-11-24",
+      "Prototype pages showed email addresses",
+      "Template housekeeping pages",
+      "Email pattern check on the page and on every data value, including harvested publiccode.yml contacts",
+      [
+        "no_emails",
+        "harvest_strips_contacts"
+      ]
+    ],
+    [
+      "D3",
+      "2026-11-24",
+      "Prototype footer said the portal was operated by CDDO and used Crown branding",
+      "Copied government template",
+      "Check for retired or misleading names and Crown marks",
+      [
+        "retired_names",
+        "no_crown_marks"
+      ]
+    ],
+    [
+      "D4",
+      "2026-11-24",
+      "Prototype listed a political party as a think tank",
+      "Unchecked list",
+      "Ecosystem lists hold only names and official https links, with no labels that classify organisations",
+      [
+        "ecosystem_links_https"
+      ]
+    ],
+    [
+      "D5",
+      "2026-11-24",
+      "On a phone, opening a deep link such as #store hid the page heading under the sticky masthead",
+      "The browser's own anchor jump ran after the page reset its scroll position",
+      "Reset the scroll after the anchor jump; the visual inspection opens a deep link and checks the heading is visible",
+      [
+        "heading_visible"
+      ]
+    ],
+    [
+      "D6",
+      "2026-11-24",
+      "With the drawer closed, its toggle showed only a switch with no visible label",
+      "The label was hidden with the drawer contents",
+      "Keep the label visible in the closed rail; the visual inspection checks it",
+      [
+        "toggle_label_visible"
+      ]
+    ],
+    [
+      "D7",
+      "2026-11-24",
+      "Knowledge graph labels overlapped",
+      "Repulsion too weak for the number of nodes",
+      "Stronger spacing; the graph is also given as a text list for anyone who cannot use it",
+      [
+        "visual_qa"
+      ]
+    ],
+    [
+      "D8",
+      "2026-11-24",
+      "The first sync failed: CI said the built site was out of date although it had just been built",
+      "The QR code library writes '/>' or ' />' depending on whether lxml is installed, so the build differed between machines",
+      "Normalise the QR code markup; a unit test checks it, and the build check now reports where the page differs",
+      [
+        "site_fresh",
+        "qr_normalised"
+      ]
+    ]
+  ]
+}
