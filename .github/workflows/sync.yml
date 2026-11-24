@@ -1,0 +1,29 @@
+# One-off bridge used while the hub is set up: copies the prepared files from a staging branch,
+# runs every check and the unit tests, and commits to main only if they all pass.
+# Workflow files are never copied (they are edited here directly). Safe to delete once set-up is finished.
+name: Sync from staging
+on:
+  workflow_dispatch:
+permissions: {contents: write}
+concurrency: {group: sync, cancel-in-progress: false}
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7
+      - uses: actions/setup-python@6d4fd22b20465ccc0f7354476588e8df7c9ca0e0 # v7
+        with: {python-version: "3.12"}
+      - run: pip install qrcode==7.4.2 python-barcode==0.15.1 pyyaml==6.0.2
+      - name: Copy staged files
+        run: |
+          git clone --depth 1 --branch staging/pubsec-tech-hub https://github.com/cyberdudeuk/cyberdudeuk.git /tmp/stage
+          rsync -a --delete --exclude .git --exclude .github/workflows --exclude .sync-message /tmp/stage/ ./
+      - run: python tools/build.py --check
+      - run: python tools/checks.py
+      - run: python -m unittest discover -s tests
+      - name: Commit
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add -A
+          git diff --cached --quiet || { git commit -m "$(head -1 /tmp/stage/.sync-message 2>/dev/null || echo 'Sync from staging')"; git push; }
