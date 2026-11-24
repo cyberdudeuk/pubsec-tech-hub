@@ -976,6 +976,26 @@
         "site_fresh",
         "qr_normalised"
       ]
+    ],
+    [
+      "D9",
+      "2026-11-24",
+      "On phones the page scrolled sideways in CI, though not on the build machine",
+      "The masthead could not shrink with the wider fonts on CI's Linux runner, and the colophon barcode kept millimetre units inside its viewBox, so its bars spilled 3.8 times wider than the box",
+      "The masthead text now shrinks and the subtitle hides on small screens; the barcode uses plain units and clips; the visual inspection now uses a wide fallback font, adds a 360px width and names the element that sticks out",
+      [
+        "visual_qa"
+      ]
+    ],
+    [
+      "D10",
+      "2026-11-24",
+      "On phones the closed drawer rail covered the left edge of the footer text",
+      "The rail is fixed to the left of the screen; the main column was padded for it but the footer was not",
+      "Pad the footer on small screens too; the visual inspection checks the closed rail does not overlap the footer",
+      [
+        "visual_qa"
+      ]
     ]
   ]
 }

@@ -67,7 +67,9 @@ def barcode_svg(text: str) -> str:
     svg = buf.getvalue().decode("utf-8")
     svg = re.sub(r"<\?xml[^>]*\?>|<!DOCTYPE[^>]*>|<!--.*?-->", "", svg, flags=re.S)
     svg = re.sub(r'\swidth="[^"]*mm"\s+height="[^"]*mm"', "", svg, count=1)
-    return svg.replace("<svg ", '<svg aria-hidden="true" focusable="false" viewBox="0 0 %s" ' % _vb(svg), 1)
+    vb = _vb(svg)
+    svg = re.sub(r'(\b(?:x|y|width|height)=")([\d.]+)mm"', r'\1\2"', svg)  # D9: mm units inside a viewBox drew the bars 3.8 times too wide
+    return svg.replace("<svg ", '<svg aria-hidden="true" focusable="false" overflow="hidden" viewBox="0 0 %s" ' % vb, 1)
 
 
 def _vb(svg: str) -> str:

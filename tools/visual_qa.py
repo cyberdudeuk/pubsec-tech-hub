@@ -24,7 +24,15 @@ from playwright.sync_api import sync_playwright
 ROOT = Path(__file__).resolve().parents[1]
 SHOTS = ROOT / "qa-shots"
 VIEWS = ["overview", "store", "adopt", "developers", "directories", "ecosystem", "knowledge", "documents", "about"]
-SIZES = [(1366, 900, "desktop"), (400, 860, "phone")]
+SIZES = [(1366, 900, "desktop"), (400, 860, "phone"), (360, 740, "small phone")]
+
+
+# Elements whose right edge passes the viewport, outermost first.
+WIDE = """() => [...document.querySelectorAll('body *')].filter(e => { const r = e.getBoundingClientRect(); return r.width > 0 && r.right > innerWidth + 1 && !(e.parentElement && e.parentElement.getBoundingClientRect().right > innerWidth + 1); }).slice(0, 4).map(e => e.tagName.toLowerCase() + (e.id ? '#' + e.id : '') + (typeof e.className === 'string' && e.className ? '.' + e.className.split(' ')[0] : ''))"""
+# True when the drawer, as shown, overlaps the footer's text column.
+COVERED = """() => { const d = document.querySelector('#drawer').getBoundingClientRect(); const f = document.querySelector('#foot .frow > div'); f.scrollIntoView(); const r = f.getBoundingClientRect(); return getComputedStyle(document.querySelector('#drawer')).position === 'fixed' && r.left < d.right - 1; }"""
+# D9: CI's fonts are wider than a desktop's, so also inspect with a wide fallback font.
+WIDE_FONT = ":root{--font:'DejaVu Sans','Liberation Sans',sans-serif!important}"
 
 
 class _Quiet(http.server.SimpleHTTPRequestHandler):
@@ -45,6 +53,7 @@ def main() -> int:
                 page = browser.new_page(viewport={"width": w, "height": h}, color_scheme=scheme)
                 page.on("pageerror", lambda e, t=f"{scheme} {tag}": problems.append(f"{t}: script error: {e}"))
                 page.goto(url)
+                page.add_style_tag(content=WIDE_FONT)
                 page.wait_for_timeout(800)
                 summary = page.inner_text("#checksSummary")
                 m = re.match(r"(\d+) of (\d+) checks pass\. (\d+) of (\d+) negative", summary)
@@ -59,8 +68,11 @@ def main() -> int:
                 page.click("#drawerToggle") if page.evaluate("!document.querySelector('#drawer').classList.contains('closed')") else None
                 if not page.locator("#drawerToggle .tl").is_visible():  # D6: the closed toggle must keep a visible label
                     problems.append(f"{scheme} {tag}: drawer toggle has no visible label when closed")
+                if page.evaluate(COVERED):  # D10: the closed drawer rail must not sit on top of the footer
+                    problems.append(f"{scheme} {tag}: the closed drawer covers footer text")
                 page.click("#drawerToggle")
                 page.goto(url)
+                page.add_style_tag(content=WIDE_FONT)
                 page.wait_for_timeout(500)
                 page.evaluate("location.hash='#store'")
                 page.select_option("#fCat", "Payments")
@@ -75,7 +87,8 @@ def main() -> int:
                         page.evaluate(f"location.hash='#{v}'")
                         page.wait_for_timeout(150)
                         if page.evaluate("document.documentElement.scrollWidth > innerWidth + 1"):
-                            problems.append(f"{scheme} {tag} {v} (drawer {drawer}): page scrolls sideways")
+                            wide = page.evaluate(WIDE)  # D9: name what sticks out, so the fix starts from the cause
+                            problems.append(f"{scheme} {tag} {v} (drawer {drawer}): page scrolls sideways: {wide}")
                         if drawer == "as loaded":
                             page.screenshot(path=str(SHOTS / f"{scheme}-{tag}-{v}.png"), full_page=True)
                 page.close()
@@ -84,7 +97,7 @@ def main() -> int:
     if problems:
         print("Visual inspection found problems:\n" + "\n".join(f"- {x}" for x in problems))
         return 1
-    print(f"Visual inspection passed: {len(VIEWS)} sections x 2 widths x 2 themes x drawer open and closed.")
+    print(f"Visual inspection passed: {len(VIEWS)} sections x {len(SIZES)} widths x 2 themes x drawer open and closed.")
     return 0
 
 
