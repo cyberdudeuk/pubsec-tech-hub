@@ -1,5 +1,7 @@
 # Public Sector Tech Hub
 
+[![gds-dtx readiness: ready with exceptions, 10 of 10 GDS Way MUST checks met](docs/conformance/badge.svg)](docs/conformance/report.md)
+
 What UK public bodies make, run and deploy, ready for you to adopt: an open app store of platforms, products and components, with the licence, code, live service and sourced facts for each. No star ratings or reviews, so nothing on it can be faked.
 
 **Read it:** https://cyberdudeuk.github.io/pubsec-tech-hub/
